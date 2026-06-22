@@ -552,6 +552,7 @@
       display: flex;
       align-items: center;
       gap: 1.2rem;
+      margin-left: auto;
     }
 
     .cart-btn {
@@ -562,6 +563,8 @@
       font-size: 1.5rem;
       padding: 0.2rem 0.4rem;
       line-height: 1;
+      vertical-align: middle;
+      margin-top: -3px;
     }
 
     .cart-count {
@@ -857,7 +860,7 @@
       <span></span><span></span><span></span>
     </button>
     <button class="cart-btn" id="cart-btn" aria-label="Open cart">
-      🛒
+      🛒 <span style="font-family:'Nunito',sans-serif;font-weight:700;font-size:0.95rem;">Your Cart</span>
       <span class="cart-count hidden" id="cart-count">0</span>
     </button>
   </div>
