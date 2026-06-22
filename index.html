@@ -74,7 +74,6 @@
 
     .nav-links a:hover { color: var(--coral); }
 
-    /* Hamburger (mobile) */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -109,7 +108,6 @@
       overflow: hidden;
     }
 
-    /* Decorative blobs */
     #home::before {
       content: '';
       position: absolute;
@@ -215,9 +213,7 @@
     /* =========================================================
        ABOUT SECTION
     ========================================================= */
-    #about {
-      background: #fff;
-    }
+    #about { background: #fff; }
 
     .about-inner {
       max-width: 1100px;
@@ -228,11 +224,8 @@
       align-items: center;
     }
 
-    .about-image-wrap {
-      position: relative;
-    }
+    .about-image-wrap { position: relative; }
 
-    /* Placeholder image box — replace src with your own photo */
     .about-img {
       width: 100%;
       aspect-ratio: 4/5;
@@ -242,7 +235,6 @@
       background: linear-gradient(135deg, #ffd6d6, #ffefc0, #d6f5da);
     }
 
-    /* Floating accent card */
     .about-accent {
       position: absolute;
       bottom: -1.5rem;
@@ -259,11 +251,7 @@
     .about-accent span { display: block; font-size: 1.8rem; }
 
     .about-text .section-title { color: var(--purple); }
-
-    .about-text p {
-      color: var(--mid);
-      margin-bottom: 1rem;
-    }
+    .about-text p { color: var(--mid); margin-bottom: 1rem; }
 
     .about-facts {
       display: flex;
@@ -291,9 +279,7 @@
     /* =========================================================
        SHOP / GALLERY SECTION
     ========================================================= */
-    #shop {
-      background: var(--cream);
-    }
+    #shop { background: var(--cream); }
 
     .shop-header {
       text-align: center;
@@ -303,7 +289,6 @@
     .shop-header .section-title { color: var(--teal); }
     .shop-header .section-label { background: var(--teal); }
 
-    /* Category filter tabs */
     .filter-tabs {
       display: flex;
       justify-content: center;
@@ -330,7 +315,6 @@
       color: #fff;
     }
 
-    /* Product grid */
     .product-grid {
       max-width: 1200px;
       margin: 0 auto;
@@ -345,7 +329,6 @@
       overflow: hidden;
       box-shadow: 0 3px 14px rgba(0,0,0,0.07);
       transition: transform 0.25s, box-shadow 0.25s;
-      cursor: pointer;
     }
     .product-card:hover {
       transform: translateY(-5px);
@@ -357,12 +340,7 @@
       aspect-ratio: 1;
       object-fit: cover;
       display: block;
-      /* Placeholder gradient — replace with real <img src="..."> */
-      background: linear-gradient(135deg, #ffd6d6 0%, #c9f0ff 100%);
     }
-
-    /* To use a real image, replace the <div class="product-img"> with:
-       <img class="product-img" src="images/your-photo.jpg" alt="Product name" /> */
 
     .product-info { padding: 1rem 1.2rem 1.4rem; }
     .product-category {
@@ -387,6 +365,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 0.8rem;
     }
     .product-price {
       font-family: 'Pacifico', cursive;
@@ -410,6 +389,34 @@
       border-radius: 50px;
     }
 
+    /* ✏️ BUY NOW BUTTON */
+    .btn-buy-now {
+      display: block;
+      width: 100%;
+      padding: 0.7rem;
+      background: var(--yellow);
+      color: var(--dark);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-buy-now:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+    .btn-buy-now.sold {
+      background: #f0f0f0;
+      color: #999;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
     .btn-contact-shop {
       display: block;
       text-align: center;
@@ -423,9 +430,7 @@
     /* =========================================================
        CONTACT SECTION
     ========================================================= */
-    #contact {
-      background: #fff;
-    }
+    #contact { background: #fff; }
 
     .contact-inner {
       max-width: 1000px;
@@ -461,19 +466,9 @@
       text-align: center;
     }
 
-    /* Contact Form */
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
     .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-
-    .form-group label {
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
+    .form-group label { font-weight: 700; font-size: 0.9rem; }
 
     .form-group input,
     .form-group textarea,
@@ -490,10 +485,7 @@
     }
     .form-group input:focus,
     .form-group textarea:focus,
-    .form-group select:focus {
-      border-color: var(--sky);
-    }
-
+    .form-group select:focus { border-color: var(--sky); }
     .form-group textarea { resize: vertical; min-height: 130px; }
 
     .form-submit {
@@ -509,13 +501,7 @@
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
-
-    .form-note {
-      font-size: 0.82rem;
-      color: var(--mid);
-      text-align: center;
-      margin-top: -0.4rem;
-    }
+    .form-note { font-size: 0.82rem; color: var(--mid); text-align: center; margin-top: -0.4rem; }
 
     /* =========================================================
        FOOTER
@@ -526,7 +512,6 @@
       text-align: center;
       padding: 2.5rem 1rem;
     }
-
     footer .footer-logo {
       font-family: 'Pacifico', cursive;
       font-size: 1.6rem;
@@ -534,9 +519,7 @@
       display: block;
       margin-bottom: 0.6rem;
     }
-
     footer p { font-size: 0.88rem; margin-bottom: 0.4rem; }
-
     .footer-links {
       display: flex;
       justify-content: center;
@@ -544,7 +527,6 @@
       margin-top: 1rem;
       flex-wrap: wrap;
     }
-
     .footer-links a {
       color: #aaa;
       text-decoration: none;
@@ -558,7 +540,6 @@
     ========================================================= */
     @media (max-width: 768px) {
       .hamburger { display: flex; }
-
       .nav-links {
         display: none;
         position: absolute;
@@ -575,21 +556,15 @@
         padding: 0.9rem 2rem;
         border-bottom: 1px solid #f0f0f0;
       }
-
-      .about-inner,
-      .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
-
+      .about-inner, .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
       .about-accent { right: 0; }
-
       .btn-outline { margin-left: 0; margin-top: 0.8rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- ================================================
-     NAVIGATION
-================================================ -->
+<!-- NAVIGATION -->
 <nav id="navbar">
   <a href="#home" class="nav-logo">Noni H.A.C</a>
   <button class="hamburger" id="hamburger" aria-label="Open menu">
@@ -604,9 +579,7 @@
 </nav>
 
 
-<!-- ================================================
-     HERO — HOME
-================================================ -->
+<!-- HERO -->
 <section id="home">
   <div class="hero-emoji">🎨</div>
   <h1 class="hero-title">Noni Homemade<br>Arts &amp; Crafts</h1>
@@ -618,58 +591,48 @@
     <span class="badge badge-coral">🖼️ Original Art</span>
     <span class="badge badge-purple">💍 Handmade Jewelry</span>
     <span class="badge badge-teal">✂️ Unique Crafts</span>
-    <span class="badge badge-sky">📦 Ships Worldwide</span>
+    <span class="badge badge-sky">📦 Ships Across the USA</span>
   </div>
   <div>
     <a href="#shop" class="btn btn-primary">Browse the Shop</a>
-    <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    <a href="#contact" class="btn btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});return false;">Get in Touch</a>
   </div>
 </section>
 
 
-<!-- ================================================
-     ABOUT
-================================================ -->
+<!-- ABOUT -->
 <section id="about">
   <div class="about-inner">
-
-    <!-- LEFT: Image -->
     <div class="about-image-wrap">
-      <!--
-        REPLACE the div below with a real photo of yourself or your workspace:
-        <img class="about-img" src="images/about-photo.jpg" alt="Noni at her crafting table" />
-      -->
+      <!-- ✏️ Replace with your own photo: <img class="about-img" src="images/about-photo.jpg" alt="Noni" /> -->
       <div class="about-img" style="display:flex;align-items:center;justify-content:center;font-size:5rem;">🎨</div>
       <div class="about-accent">
         <span>❤️</span>
         Made with love
       </div>
     </div>
-
-    <!-- RIGHT: Text -->
     <div class="about-text">
       <span class="section-label">About Me</span>
-      <h2 class="section-title">Hello, I'm NandiniM!</h2>
+      <h2 class="section-title">Hello, I'm Noni!</h2>
+      <!-- ✏️ Edit the paragraphs below with your real story -->
       <p>
-        <!-- ✏️ EDIT THIS — tell your story! -->
-        I've been creating handmade art and jewelry since I was  a little. I find it fun creating somthing unique, because there's only one of it in the whole world!
+        I've been creating handmade art and jewelry for as long as I can remember.
         What started as a hobby quickly became a passion — and now I get to share
-        my creations with the world!
+        my creations with the world.
       </p>
       <p>
-        Every piece I make is completely different and detailed while maintaining a uniform and finished look. I pour my heart into the small elements,
+        Every piece I make is completely unique. I pour my heart into the details,
         from the choice of colors to the finishing touches. No two items are
-        exactly alike — that's the magic of handmade crafts!
+        exactly alike — that's the magic of handmade!
       </p>
       <p>
-        <!-- ✏️ ADD your personal touch here — your location, inspiration, materials you use, etc. -->
-        Based in the state of Georgia, I draw inspiration from nature, the many places I have seen, and everyday
+        <!-- ✏️ Add your city, inspiration, materials, etc. -->
+        Based in [Your City], I draw inspiration from nature, travel, and everyday
         moments of beauty. I use only quality materials because your piece deserves
-        to be the best and to last.
+        to last.
       </p>
-
       <div class="about-facts">
-        <!-- ✏️ UPDATE these numbers to match your real stats -->
+        <!-- ✏️ Update these numbers -->
         <div class="fact">
           <div class="fact-num">50+</div>
           <div class="fact-label">Pieces sold</div>
@@ -684,14 +647,11 @@
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
 
-<!-- ================================================
-     SHOP
-================================================ -->
+<!-- SHOP -->
 <section id="shop">
   <div class="shop-header">
     <span class="section-label">Shop</span>
@@ -700,8 +660,6 @@
       Each piece is made by hand, one at a time. Once it's gone, it's gone — so
       grab what you love before someone else does! 💛
     </p>
-
-    <!-- ✏️ You can add or rename categories below -->
     <div class="filter-tabs">
       <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
       <button class="filter-btn" onclick="filterProducts('art', this)">🖼️ Art</button>
@@ -712,11 +670,11 @@
 
   <!--
     ✏️ HOW TO ADD YOUR PRODUCTS:
-    Copy one of the product-card divs below and fill in:
-      - data-category="art" | "jewelry" | "crafts"
-      - Replace the gradient div with: <img class="product-img" src="images/photo.jpg" alt="name" />
-      - Update the name, description, and price
-      - Change badge: "new" or "sold" or leave blank
+    - Replace the gradient div with: <img class="product-img" src="images/photo.jpg" alt="name" />
+    - Update name, description, price
+    - For the Buy Now button: replace YOUR_PAYPAL_USERNAME with your PayPal.Me username
+      and update the amount to match the product price
+    - For sold items: change btn-buy-now to btn-buy-now sold and change the text to "Sold Out"
   -->
   <div class="product-grid" id="product-grid">
 
@@ -731,6 +689,8 @@
           <span class="product-price">$35</span>
           <span class="product-badge-new">New</span>
         </div>
+        <!-- ✏️ Replace YOUR_PAYPAL_USERNAME and the amount (35) with the real price -->
+        <a class="btn-buy-now" href="https://paypal.me/YOUR_PAYPAL_USERNAME/35" target="_blank" rel="noopener">💛 Buy Now</a>
       </div>
     </div>
 
@@ -745,6 +705,7 @@
           <span class="product-price">$28</span>
           <span class="product-badge-new">New</span>
         </div>
+        <a class="btn-buy-now" href="https://paypal.me/YOUR_PAYPAL_USERNAME/28" target="_blank" rel="noopener">💛 Buy Now</a>
       </div>
     </div>
 
@@ -759,6 +720,7 @@
           <span class="product-price">$12</span>
           <span class="product-badge-new">New</span>
         </div>
+        <a class="btn-buy-now" href="https://paypal.me/YOUR_PAYPAL_USERNAME/12" target="_blank" rel="noopener">💛 Buy Now</a>
       </div>
     </div>
 
@@ -773,6 +735,8 @@
           <span class="product-price">$45</span>
           <span class="product-badge-sold">Sold</span>
         </div>
+        <!-- This item is sold — button is disabled -->
+        <a class="btn-buy-now sold">Sold Out</a>
       </div>
     </div>
 
@@ -787,6 +751,7 @@
           <span class="product-price">$22</span>
           <span class="product-badge-new">New</span>
         </div>
+        <a class="btn-buy-now" href="https://paypal.me/YOUR_PAYPAL_USERNAME/22" target="_blank" rel="noopener">💛 Buy Now</a>
       </div>
     </div>
 
@@ -801,31 +766,28 @@
           <span class="product-price">$18</span>
           <span class="product-badge-new">New</span>
         </div>
+        <a class="btn-buy-now" href="https://paypal.me/YOUR_PAYPAL_USERNAME/18" target="_blank" rel="noopener">💛 Buy Now</a>
       </div>
     </div>
 
   </div>
 
-  <a href="#contact" class="btn btn-contact-shop">💌 Want to order? Get in touch!</a>
+  <a href="#contact" class="btn btn-contact-shop">💌 Have a question? Get in touch!</a>
 </section>
 
 
-<!-- ================================================
-     CONTACT
-================================================ -->
+<!-- CONTACT -->
 <section id="contact">
   <div class="contact-inner">
-
-    <!-- LEFT: Info -->
     <div class="contact-text">
       <span class="section-label">Contact</span>
       <h2 class="section-title">Let's Chat!</h2>
       <p>
-        Interested in a piece? Have a custom order request or recomendations?
+        Interested in a piece? Have a custom order request? Want to say hi?
         I'd love to hear from you! Fill out the form or reach me directly:
       </p>
       <div class="contact-ways">
-        <!-- ✏️ Replace # with your actual email / social links -->
+        <!-- ✏️ Replace with your real email and social links -->
         <a class="contact-way" href="mailto:nonima111113@gmail.com">
           <span class="contact-way-icon">📧</span>
           <div>
@@ -850,13 +812,7 @@
       </div>
     </div>
 
-    <!-- RIGHT: Form -->
-    <!--
-      ✏️ HOW TO MAKE THIS FORM WORK:
-      Option A (free & easy): Sign up at https://formspree.io
-        Then change the action below to: action="https://formspree.io/f/YOUR_CODE"
-      Option B: Link to your email directly with a mailto: form handler.
-    -->
+    <!-- ✏️ Sign up at formspree.io and replace YOUR_FORMSPREE_CODE -->
     <form class="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_CODE" method="POST">
       <div class="form-group">
         <label for="name">Your Name</label>
@@ -883,14 +839,11 @@
       <button type="submit" class="form-submit">Send Message 💌</button>
       <p class="form-note">I try to reply within 1–2 business days. 🌟</p>
     </form>
-
   </div>
 </section>
 
 
-<!-- ================================================
-     FOOTER
-================================================ -->
+<!-- FOOTER -->
 <footer>
   <span class="footer-logo">Noni H.A.C</span>
   <p>Handmade with ❤️ — Noni Homemade Arts &amp; Crafts</p>
@@ -904,14 +857,9 @@
 </footer>
 
 
-<!-- ================================================
-     JAVASCRIPT
-================================================ -->
 <script>
-  // Auto year in footer
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Mobile menu toggle
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.getElementById('nav-links');
   hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
@@ -919,13 +867,9 @@
     a.addEventListener('click', () => navLinks.classList.remove('open'))
   );
 
-  // Product category filter
   function filterProducts(category, btn) {
-    // Update active tab
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
-    // Show / hide cards
     document.querySelectorAll('.product-card').forEach(card => {
       const match = category === 'all' || card.dataset.category === category;
       card.style.display = match ? 'block' : 'none';
