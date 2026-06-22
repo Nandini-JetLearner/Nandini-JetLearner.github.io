@@ -551,7 +551,7 @@
     .nav-right {
       display: flex;
       align-items: center;
-      gap: 1.2rem;
+      gap: 1.8rem;
       margin-left: auto;
     }
 
@@ -560,11 +560,12 @@
       background: none;
       border: none;
       cursor: pointer;
-      font-size: 1.5rem;
-      padding: 0.2rem 0.4rem;
+      font-size: 1.2rem;
+      padding: 0;
       line-height: 1;
-      vertical-align: middle;
-      margin-top: -3px;
+      display: flex;
+      align-items: center;
+      margin-left: 0;
     }
 
     .cart-count {
@@ -855,20 +856,20 @@
 <!-- NAVIGATION -->
 <nav id="navbar">
   <a href="#home" class="nav-logo">Noni H.A.C</a>
-  <div class="nav-right">
-    <button class="hamburger" id="hamburger" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-    <button class="cart-btn" id="cart-btn" aria-label="Open cart">
-      🛒 <span style="font-family:'Nunito',sans-serif;font-weight:700;font-size:0.95rem;">Your Cart</span>
-      <span class="cart-count hidden" id="cart-count">0</span>
-    </button>
-  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links" id="nav-links">
     <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#shop">Shop</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li>
+      <button class="cart-btn" id="cart-btn" aria-label="Open cart">
+        🛒
+        <span class="cart-count hidden" id="cart-count">0</span>
+      </button>
+    </li>
   </ul>
 </nav>
 
