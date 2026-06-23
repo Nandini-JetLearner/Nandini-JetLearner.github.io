@@ -342,7 +342,9 @@
       display: block;
     }
 
-    .product-info { padding: 1rem 1.2rem 1.4rem; }
+    .product-card { display: flex; flex-direction: column; }
+    .product-info { padding: 1rem 1.2rem 1.4rem; display: flex; flex-direction: column; flex: 1; }
+    .btn-buy-now, .stock-label { margin-top: auto; }
     .product-category {
       font-size: 0.75rem;
       font-weight: 700;
@@ -390,6 +392,7 @@
     }
 
     /* STOCK LABEL */
+    .stock-label { margin-top: 0 !important; }
     .stock-label {
       font-size: 0.8rem;
       font-weight: 700;
@@ -903,7 +906,7 @@
       <div class="about-img" style="display:flex;align-items:center;justify-content:center;font-size:5rem;">🎨</div>
       <div class="about-accent">
         <span>❤️</span>
-        Made with love!
+        Photo of me creating my products!
       </div>
     </div>
     <div class="about-text">
@@ -914,15 +917,14 @@
         I'm the owner of Noni Homemade Arts & Crafts! I'm so excited to be able to share my creations with the world! I've been painting and crafting since I was very little and now I'm able to sell my pieces across the United States.
       </p>
       <p>
-        Every piece I make is completely different unique while mainatining a finished look. I am extra careful with the details,
-        from the array of colors to the finishing touches. No two items are
-        alike — that's the magic of handmade items!
+        I make every piece by myself while being extra careful with details from the material and colors to the finishing touches. No two items are
+        alike — that's the magic of handmade pieces!
       </p>
       <p>
         <!-- ✏️ Add your city, inspiration, materials, etc. -->
         Based in the state of Georgia, I draw inspiration from nature, travel destinations, and everyday
         moments of life. I use only quality materials because your piece deserves
-        to be the best.
+        to be the best. I hope that you find what you're looking for!
       </p>
       <div class="about-facts">
         <!-- ✏️ Update these numbers -->
@@ -950,8 +952,8 @@
     <span class="section-label">Shop</span>
     <h2 class="section-title">Browse the Collection</h2>
     <p class="section-intro" style="margin:0 auto;">
-      Each piece is made by hand, one at a time. Once it's gone, it's gone — so
-      grab what you love before someone else does! 💛
+      Each piece is made one at a time. Once it's gone, it's gone — so
+      grab what you love before somebody else does! 💛
     </p>
     <div class="filter-tabs">
       <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
@@ -1056,6 +1058,23 @@
       </div>
     </div>
 
+<!-- PRODUCT 6 -->
+    <div class="product-card" data-category="crafts">
+      <div class="product-img" style="background:linear-gradient(135deg,#d4fc79,#96e6a1);display:flex;align-items:center;justify-content:center;font-size:4rem;">🌟</div>
+      <div class="product-info">
+        <div class="product-category">Crafts</div>
+        <div class="product-name">Gold Pearl Earrings</div>
+        <div class="product-desc">Golden hooks with white pearls embedded in the metal. A beautiful gift for  loved ones.</div>
+        <div class="product-footer">
+          <span class="product-price">$12</span>
+          <span class="product-badge-new">New</span>
+        </div>
+        <!-- ✏️ Change the number below to update stock -->
+        <div class="stock-label">Only 8 left!</div>
+        <button class="btn-buy-now" onclick="addToCart('Gold Pearl Earrings', 12, '🌟', 'linear-gradient(135deg,#d4fc79,#96e6a1)', 8)">🛒 Add to Cart</button>
+      </div>
+    </div>
+
   </div>
 
   <a href="#contact" class="btn btn-contact-shop">💌 Have a question? Get in touch!</a>
@@ -1122,7 +1141,7 @@
         <textarea id="message" name="message" placeholder="Tell me what you're looking for!" required></textarea>
       </div>
       <button type="submit" class="form-submit">Send Message 💌</button>
-      <p class="form-note" id="contact-note">I try to reply within 1–2 business days. 🌟</p>
+      <p class="form-note" id="contact-note">I try to reply within 4–5 business days. 🌟</p>
     </form>
   </div>
 </section>
@@ -1131,7 +1150,7 @@
 <!-- FOOTER -->
 <footer>
   <span class="footer-logo">Noni H.A.C</span>
-  <p>Handmade with ❤️ — Noni Homemade Arts &amp; Crafts</p>
+  <p>Handcrafted with care❤️ — Noni Homemade Arts &amp; Crafts</p>
   <p style="font-size:0.8rem;opacity:0.6;">© <span id="year"></span> All rights reserved.</p>
   <div class="footer-links">
     <a href="#home">Home</a>
