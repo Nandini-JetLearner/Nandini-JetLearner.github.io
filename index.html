@@ -880,13 +880,13 @@
   <h1 class="hero-title">Noni Homemade<br>Arts &amp; Crafts</h1>
   <p class="hero-subtitle">
     One-of-a-kind handmade art &amp; jewelry, crafted with love and care.
-    Every piece tells a story — find yours.
+    Built with creativity and imagination.
   </p>
   <div class="hero-badges">
-    <span class="badge badge-coral">🖼️ Original Art</span>
+    <span class="badge badge-sky">🖼️ Original Art</span>
     <span class="badge badge-purple">💍 Handmade Jewelry</span>
-    <span class="badge badge-teal">✂️ Unique Crafts</span>
-    <span class="badge badge-sky">📦 Ships Across the USA</span>
+    <span class="badge badge-sky">✂️ Unique Crafts</span>
+    <span class="badge badge-purple">📦 Ships Across the USA</span>
   </div>
   <div>
     <a href="#shop" class="btn btn-primary">Browse the Shop</a>
@@ -903,22 +903,20 @@
       <div class="about-img" style="display:flex;align-items:center;justify-content:center;font-size:5rem;">🎨</div>
       <div class="about-accent">
         <span>❤️</span>
-        Made with love
+        Made with love!
       </div>
     </div>
     <div class="about-text">
       <span class="section-label">About Me</span>
-      <h2 class="section-title">Hello, I'm Noni!</h2>
+      <h2 class="section-title">Hello, I'm Nandini!</h2>
       <!-- ✏️ Edit the paragraphs below with your real story -->
       <p>
-        I've been creating handmade art and jewelry since i was little.
-        What started as a hobby quickly became a passion — and now I get to share
-        my creations with the world.
+        I'm the owner of Noni Homemade Arts & Crafts! I'm so excited to be able to share my creations with the world! I've been painting and crafting since I was very little and now I'm able to sell my pieces across the United States.
       </p>
       <p>
         Every piece I make is completely different unique while mainatining a finished look. I am extra careful with the details,
-        from the choice of colors to the finishing touches. No two items are
-        exactly alike — that's the magic of handmade items!
+        from the array of colors to the finishing touches. No two items are
+        alike — that's the magic of handmade items!
       </p>
       <p>
         <!-- ✏️ Add your city, inspiration, materials, etc. -->
@@ -1058,23 +1056,6 @@
       </div>
     </div>
 
-    <!-- PRODUCT 6 -->
-    <div class="product-card" data-category="crafts">
-      <div class="product-img" style="background:linear-gradient(135deg,#f6d365,#fda085);display:flex;align-items:center;justify-content:center;font-size:4rem;">🕯️</div>
-      <div class="product-info">
-        <div class="product-category">Crafts</div>
-        <div class="product-name">Soy Wax Candle</div>
-        <div class="product-desc">Hand-poured with lavender &amp; vanilla scent. 40+ hour burn time.</div>
-        <div class="product-footer">
-          <span class="product-price">$18</span>
-          <span class="product-badge-new">New</span>
-        </div>
-        <!-- ✏️ Change the number below to update stock -->
-        <div class="stock-label">Only 6 left!</div>
-        <button class="btn-buy-now" onclick="addToCart('Soy Wax Candle', 18, '🕯️', 'linear-gradient(135deg,#f6d365,#fda085)', 6)">🛒 Add to Cart</button>
-      </div>
-    </div>
-
   </div>
 
   <a href="#contact" class="btn btn-contact-shop">💌 Have a question? Get in touch!</a>
@@ -1088,7 +1069,7 @@
       <span class="section-label">Contact</span>
       <h2 class="section-title">Let's Chat!</h2>
       <p>
-        Interested in a piece that is no longer in our catalog? Have an order request? Have a question or recomendation?
+        Interested in an item that is no longer in our catalog? Want to order a custom piece? Have a question or review?
         I'd love to hear from you! Fill out the form or reach me directly:
       </p>
       <div class="contact-ways">
@@ -1117,8 +1098,7 @@
       </div>
     </div>
 
-    <!-- ✏️ Sign up at formspree.io and replace YOUR_FORMSPREE_CODE -->
-    <form class="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_CODE" method="POST">
+    <form class="contact-form" id="contact-form">
       <div class="form-group">
         <label for="name">Your Name</label>
         <input type="text" id="name" name="name" placeholder="Jane Smith" required />
@@ -1142,7 +1122,7 @@
         <textarea id="message" name="message" placeholder="Tell me what you're looking for!" required></textarea>
       </div>
       <button type="submit" class="form-submit">Send Message 💌</button>
-      <p class="form-note">I try to reply within 1–2 business days. 🌟</p>
+      <p class="form-note" id="contact-note">I try to reply within 1–2 business days. 🌟</p>
     </form>
   </div>
 </section>
@@ -1183,6 +1163,30 @@
       card.style.display = match ? 'block' : 'none';
     });
   }
+
+  // ── Contact Form → Google Forms ───────────────────────
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append('entry.1128369480', document.getElementById('name').value.trim());
+    formData.append('entry.2050798534', document.getElementById('email').value.trim());
+    formData.append('entry.1979158597', document.getElementById('interest').value.trim());
+    formData.append('entry.48030744',   document.getElementById('message').value.trim());
+
+    fetch('https://docs.google.com/forms/d/e/1FAIpQLScb3TzyIqXbZPtQlNmuVAaiTJrNMZ_sgS_z8_bme2wJfq8EOg/formResponse', {
+      method: 'POST',
+      mode: 'no-cors',
+      body: formData
+    });
+
+    // Show success message and clear form
+    const note = document.getElementById('contact-note');
+    note.textContent = '✅ Message sent! I\'ll get back to you soon.';
+    note.style.color = '#2a8a36';
+    note.style.fontWeight = '700';
+    this.reset();
+  });
 
   // ── Shopping Cart ─────────────────────────────────────
   // ✏️ Replace with your actual PayPal username
