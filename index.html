@@ -1165,20 +1165,39 @@
   }
 
   // ── Contact Form → Google Forms ───────────────────────
+  // Hidden iframe so the form posts silently without redirecting the page
+  const contactIframe = document.createElement('iframe');
+  contactIframe.name = 'contact-iframe';
+  contactIframe.style.display = 'none';
+  document.body.appendChild(contactIframe);
+
   document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const formData = new FormData();
-    formData.append('entry.1128369480', document.getElementById('name').value.trim());
-    formData.append('entry.2050798534', document.getElementById('email').value.trim());
-    formData.append('entry.1979158597', document.getElementById('interest').value.trim());
-    formData.append('entry.48030744',   document.getElementById('message').value.trim());
+    // Build a hidden form and submit it into the invisible iframe
+    const hf = document.createElement('form');
+    hf.method = 'POST';
+    hf.action = 'https://docs.google.com/forms/d/e/1FAIpQLScb3TzyIqXbZPtQlNmuVAaiTJrNMZ_sgS_z8_bme2wJfq8EOg/formResponse';
+    hf.target = 'contact-iframe';
 
-    fetch('https://docs.google.com/forms/d/e/1FAIpQLScb3TzyIqXbZPtQlNmuVAaiTJrNMZ_sgS_z8_bme2wJfq8EOg/formResponse', {
-      method: 'POST',
-      mode: 'no-cors',
-      body: formData
-    });
+    const fields = {
+      'entry.1128369480': document.getElementById('name').value.trim(),
+      'entry.2050798534': document.getElementById('email').value.trim(),
+      'entry.1979158597': document.getElementById('interest').value.trim(),
+      'entry.48030744':   document.getElementById('message').value.trim()
+    };
+
+    for (const [key, val] of Object.entries(fields)) {
+      const input = document.createElement('input');
+      input.type  = 'hidden';
+      input.name  = key;
+      input.value = val;
+      hf.appendChild(input);
+    }
+
+    document.body.appendChild(hf);
+    hf.submit();
+    document.body.removeChild(hf);
 
     // Show success message and clear form
     const note = document.getElementById('contact-note');
@@ -1308,22 +1327,39 @@
     const total      = cart.reduce((s, i) => s + i.price * i.qty, 0).toFixed(2);
     const itemsList  = cart.map(i => `${i.name} x${i.qty} ($${(i.price * i.qty).toFixed(2)})`).join(', ');
 
-    // Send order silently to Google Form
-    const formData = new FormData();
-    formData.append('entry.684519026', name);        // Customer Name
-    formData.append('entry.2120045347', address);    // Street Address
-    formData.append('entry.1802120289', city);       // City
-    formData.append('entry.1373558575', state);      // State
-    formData.append('entry.861330375',  zip);        // Zipcode
-    formData.append('entry.310932744',  email);      // Customer Email
-    formData.append('entry.900209760',  itemsList);  // Items Ordered
-    formData.append('entry.1805321718', '$' + total);// Total Amount
+    // Send order silently to Google Form via hidden iframe
+    const orderIframe = document.createElement('iframe');
+    orderIframe.name = 'order-iframe';
+    orderIframe.style.display = 'none';
+    document.body.appendChild(orderIframe);
 
-    fetch('https://docs.google.com/forms/d/e/1FAIpQLSfistBY6v7mKqcE6RphhHu8lPPstvL820SuWb0b_khYyvLzMw/formResponse', {
-      method: 'POST',
-      mode: 'no-cors',
-      body: formData
-    });
+    const hf = document.createElement('form');
+    hf.method = 'POST';
+    hf.action = 'https://docs.google.com/forms/d/e/1FAIpQLSfistBY6v7mKqcE6RphhHu8lPPstvL820SuWb0b_khYyvLzMw/formResponse';
+    hf.target = 'order-iframe';
+
+    const orderFields = {
+      'entry.684519026':  name,
+      'entry.2120045347': address,
+      'entry.1802120289': city,
+      'entry.1373558575': state,
+      'entry.861330375':  zip,
+      'entry.310932744':  email,
+      'entry.900209760':  itemsList,
+      'entry.1805321718': '$' + total
+    };
+
+    for (const [key, val] of Object.entries(orderFields)) {
+      const input = document.createElement('input');
+      input.type  = 'hidden';
+      input.name  = key;
+      input.value = val;
+      hf.appendChild(input);
+    }
+
+    document.body.appendChild(hf);
+    hf.submit();
+    document.body.removeChild(hf);
 
     // Open PayPal
     const url = `https://paypal.me/${PAYPAL_USERNAME}/${total}`;
