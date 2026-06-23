@@ -1285,7 +1285,7 @@
     cartTotalEl.textContent = '$' + grandTotal.toFixed(2);
   }
 
-  // Checkout — validate shipping info then go to PayPal
+  // Checkout — validate, send to Google Form, then go to PayPal
   document.getElementById('btn-checkout').addEventListener('click', () => {
     if (cart.length === 0) return;
 
@@ -1301,7 +1301,27 @@
       return;
     }
 
-    const total = cart.reduce((s, i) => s + i.price * i.qty, 0).toFixed(2);
+    const total      = cart.reduce((s, i) => s + i.price * i.qty, 0).toFixed(2);
+    const itemsList  = cart.map(i => `${i.name} x${i.qty} ($${(i.price * i.qty).toFixed(2)})`).join(', ');
+
+    // Send order silently to Google Form
+    const formData = new FormData();
+    formData.append('entry.684519026', name);        // Customer Name
+    formData.append('entry.2120045347', address);    // Street Address
+    formData.append('entry.1802120289', city);       // City
+    formData.append('entry.1373558575', state);      // State
+    formData.append('entry.861330375',  zip);        // Zipcode
+    formData.append('entry.310932744',  email);      // Customer Email
+    formData.append('entry.900209760',  itemsList);  // Items Ordered
+    formData.append('entry.1805321718', '$' + total);// Total Amount
+
+    fetch('https://docs.google.com/forms/d/e/1FAIpQLSfistBY6v7mKqcE6RphhHu8lPPstvL820SuWb0b_khYyvLzMw/formResponse', {
+      method: 'POST',
+      mode: 'no-cors',
+      body: formData
+    });
+
+    // Open PayPal
     const url = `https://paypal.me/${PAYPAL_USERNAME}/${total}`;
     window.open(url, '_blank');
   });
