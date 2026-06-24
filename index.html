@@ -1359,9 +1359,12 @@
     hf.action = 'https://docs.google.com/forms/d/e/1FAIpQLSfistBY6v7mKqcE6RphhHu8lPPstvL820SuWb0b_khYyvLzMw/formResponse';
     hf.target = 'order-iframe';
 
+    const address2 = document.getElementById('ship-address2').value.trim();
+
     const orderFields = {
       'entry.684519026':  name,
       'entry.2120045347': address,
+      'entry.612243905':  address2,
       'entry.1802120289': city,
       'entry.1373558575': state,
       'entry.861330375':  zip,
